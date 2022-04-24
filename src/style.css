@@ -8,13 +8,14 @@
   background-color: darkolivegreen;
   width: 100vw;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 3fr 8fr 0.5fr;
+  justify-items: center;
   gap: 15px;
 }
 
 #header {
+  grid-row: 1;
   /* Background image here */
   width: 100%;
   display: grid;
@@ -30,14 +31,23 @@
   align-items: center;
 }
 
-.links a {
-  text-decoration: none;
+.links {
+  list-style: none;
+  display: flex;
+}
+
+.links li {
   background-color: darkgray;
   border: 2px solid black;
   padding: 2px 4px;
 }
 
+.links li:hover {
+  cursor: pointer;
+}
+
 #main {
+  grid-row: 2;
   width: 60%;
   background-color: darkseagreen;
   border-radius: 15px;
@@ -56,7 +66,15 @@
   margin-top: 5px;
 }
 
+.comm {
+  list-style: none;
+}
+
 #footer {
+  grid-row: 3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: gray;
-  justify-self: flex-end;
 }
