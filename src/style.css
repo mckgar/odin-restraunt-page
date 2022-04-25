@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Work+Sans&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +9,7 @@
 #content {
   background: url("variety-fresh-tasty-vegetables-dark.jpg");
   background-size: 100vw auto;
+  font-family: 'Work Sans', sans-serif;
   color: aliceblue;
   width: 100vw;
   min-height: 100vh;
@@ -14,6 +17,10 @@
   grid-template-rows: 2rem 1fr 1.5rem;
   justify-items: center;
   gap: 15px;
+}
+
+h1,h2,h3,h4 {
+  font-family: 'Rye', cursive;
 }
 
 #header {
@@ -32,9 +39,11 @@
 .links {
   list-style: none;
   display: flex;
+  gap: 5px;
 }
 
 .links li {
+  font-size: 1.5rem;
   background-color: black;
   padding: 2px 4px;
 }
@@ -59,7 +68,7 @@
   width: 80%;
   padding: 5px 15px;
   border-radius: 15px;
-  background-color: rgb(144, 238, 144, 0.3);
+  background-color: rgba(26, 117, 26, 0.3);
 }
 
 h2,
