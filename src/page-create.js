@@ -161,15 +161,45 @@ const pageCreate = (() => {
     ));
     main.appendChild(__createMenuItem(
       "Green Chile Cheese Tamale",
-      "$2.50 ea.",
+      "$2.50",
       "130 calories",
       "Made with freshly roasted hatch green chile"
+    ));
+    main.appendChild(__createMenuItem(
+      "Key Lime Pie",
+      "$3.14",
+      "300 calories",
+      "Good enough to drive someone crazy!"
+    ));
+    main.appendChild(__createMenuItem(
+      "A Literal Brick",
+      "$5.00",
+      "3200 calories",
+      "10/10 dentists recommend"
     ));
     main.appendChild(__createMenuItem(
       "Banana",
       "$10.00",
       "105 calories",
       "It's a banana, Michael. How much could it cost?"
+    ));
+    main.appendChild(__createMenuItem(
+      "Moa Burger",
+      "$8.00",
+      "105 calories",
+      "Fresh from Reach!"
+    ));
+    main.appendChild(__createMenuItem(
+      "Senzu Bean",
+      "$44,195.00",
+      "9001 calories",
+      "Perfect for freshly defeated enemies!"
+    ));
+    main.appendChild(__createMenuItem(
+      "Mtn Dew",
+      "$2.00",
+      "290 calories",
+      "Pulsating through the veins of gamers for decades"
     ));
 
     return main;
