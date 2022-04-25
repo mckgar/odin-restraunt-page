@@ -33,10 +33,11 @@ const pageCreate = (() => {
     const footer = document.createElement("div");
     footer.id = "footer";
 
-    footer.appendChild(
-      document.createElement("p")
-    )
-    footer.lastChild.textContent = "Footer Stuff";
+    const backgroundAttr = document.createElement("a");
+    backgroundAttr.href = "https://www.freepik.com/photos/vegan-background";
+    backgroundAttr.textContent = "Vegan background photo created by valeria_aksakova - www.freepik.com";
+
+    footer.appendChild(backgroundAttr);
 
     return footer;
   }
@@ -45,95 +46,103 @@ const pageCreate = (() => {
     const main = document.createElement("div");
     main.id = "main";
 
+    const opening = document.createElement("div");
+
     const title = document.createElement("h2");
     title.textContent = "Odin Restraunt";
-    main.appendChild(title);
 
     const est = document.createElement("p");
     est.textContent = "Providing the community with fresh meals since never!";
     main.appendChild(est);
 
+    opening.appendChild(title);
+    opening.appendChild(est);
+    main.appendChild(opening);
+
     const hype = document.createElement("div");
     hype.classList.add("hype");
-    const review = document.createElement("p");
-    const reviewer = document.createElement("p");
-    review.textContent = `Oh wow, this meal was amazing! I'm definitely going to 
-    have to come back here again and try everything else you serve! This might be 
-    the best restraunt I've ever been to!`;
-    reviewer.textContent = "-Totally a real customer";
 
-    hype.appendChild(review);
-    hype.appendChild(reviewer);
+    const reviewTitle = document.createElement("h3");
+    reviewTitle.textContent = "Check out these raving reviews!"
+    hype.appendChild(reviewTitle);
+
+    hype.appendChild(__wrtieReview(
+      `Oh wow, this meal was amazing! I'm definitely going to have to come 
+      back here again and try everything else you serve! This might be the  
+      best restraunt I've ever been to!`,
+      "-Totally a real customer"
+    ));
+    hype.appendChild(__wrtieReview(
+      `I've been eating here for 300 years, and I expect to eat here for 
+      300 more!`,
+      "-An immortal patron"
+    ));
+    hype.appendChild(__wrtieReview(
+      `They understood that I didn't want a birthday song sung to me, despite 
+      my families insistence! I will forever be in their debt.`,
+      "-An average birthday haver"
+    ));
 
     const hours = document.createElement("table");
 
-    const monday = document.createElement("tr");
-    const mondayLabel = document.createElement("th");
-    mondayLabel.textContent = "Monday";
-    const mondayHours = document.createElement("td");
-    mondayHours.textContent = "6:00am - 9:00pm";
-    monday.appendChild(mondayLabel);
-    monday.appendChild(mondayHours);
-    hours.appendChild(monday);
-
-    const tuesday = document.createElement("tr");
-    const tuesdayLabel = document.createElement("th");
-    tuesdayLabel.textContent = "Tuesday";
-    const tuesdayHours = document.createElement("td");
-    tuesdayHours.textContent = "6:00am - 9:00pm";
-    tuesday.appendChild(tuesdayLabel);
-    tuesday.appendChild(tuesdayHours);
-    hours.appendChild(tuesday);
-
-    const wednesday = document.createElement("tr");
-    const wednesdayLabel = document.createElement("th");
-    wednesdayLabel.textContent = "Wednesday";
-    const wednesdayHours = document.createElement("td");
-    wednesdayHours.textContent = "6:00am - 9:00pm";
-    wednesday.appendChild(wednesdayLabel);
-    wednesday.appendChild(wednesdayHours);
-    hours.appendChild(wednesday);
-
-    const thursday = document.createElement("tr");
-    const thursdayLabel = document.createElement("th");
-    thursdayLabel.textContent = "Thursday";
-    const thursdayHours = document.createElement("td");
-    thursdayHours.textContent = "6:00am - 9:00pm";
-    thursday.appendChild(thursdayLabel);
-    thursday.appendChild(thursdayHours);
-    hours.appendChild(thursday);
-
-    const friday = document.createElement("tr");
-    const fridayLabel = document.createElement("th");
-    fridayLabel.textContent = "Friday";
-    const fridayHours = document.createElement("td");
-    fridayHours.textContent = "6:00am - 11:00pm";
-    friday.appendChild(fridayLabel);
-    friday.appendChild(fridayHours);
-    hours.appendChild(friday);
-
-    const saturday = document.createElement("tr");
-    const saturdayLabel = document.createElement("th");
-    saturdayLabel.textContent = "Saturday";
-    const saturdayHours = document.createElement("td");
-    saturdayHours.textContent = "9:00am - 11:00pm";
-    saturday.appendChild(saturdayLabel);
-    saturday.appendChild(saturdayHours);
-    hours.appendChild(saturday);
-
-    const sunday = document.createElement("tr");
-    const sundayLabel = document.createElement("th");
-    sundayLabel.textContent = "Sunday";
-    const sundayHours = document.createElement("td");
-    sundayHours.textContent = "9:00am - 8:00pm";
-    sunday.appendChild(saturdayLabel);
-    sunday.appendChild(saturdayHours);
-    hours.appendChild(saturday);
+    hours.appendChild(__addHours(
+      "Monday",
+      "6:00am - 9:00pm"
+    ));
+    hours.appendChild(__addHours(
+      "Tuesday",
+      "6:00am - 9:00pm"
+    ));
+    hours.appendChild(__addHours(
+      "Wednesday",
+      "6:00am - 9:00pm"
+    ));
+    hours.appendChild(__addHours(
+      "Thursday",
+      "6:00am - 9:00pm"
+    ));
+    hours.appendChild(__addHours(
+      "Friday",
+      "6:00am - 11:00pm"
+    ));
+    hours.appendChild(__addHours(
+      "Saturday",
+      "9:00am - 11:00pm"
+    ));
+    hours.appendChild(__addHours(
+      "Sunday",
+      "9:00am - 8:00pm"
+    ));
 
     main.appendChild(hype);
     main.appendChild(hours);
 
     return main;
+  }
+
+  const __wrtieReview = (writtenReview, reviewer) => {
+    const testimony = document.createElement("div");
+    testimony.classList.add("review");
+    const review = document.createElement("p");
+    const reviewie = document.createElement("p");
+    review.textContent = writtenReview;
+    reviewie.textContent = reviewer;
+    testimony.appendChild(review);
+    testimony.appendChild(reviewie);
+
+    return testimony;
+  }
+
+  const __addHours = (day, time) => {
+    const weekday = document.createElement("tr");
+    const weekdayLabel = document.createElement("th");
+    weekdayLabel.textContent = day;
+    const weekdayHours = document.createElement("td");
+    weekdayHours.textContent = time;
+    weekday.appendChild(weekdayLabel);
+    weekday.appendChild(weekdayHours);
+
+    return weekday;
   }
 
   const __menuMain = () => {
@@ -169,15 +178,21 @@ const pageCreate = (() => {
   const __createMenuItem = (dishName, dishPrice, dishCalories, dishDescription) => {
     const foodItem = document.createElement("div");
     foodItem.classList.add("food");
-    foodItem.textContent = dishName;
 
+    const name = document.createElement("p");
+    name.textContent = dishName;
+    name.classList.add("dish-name");
     const price = document.createElement("p");
     price.textContent = dishPrice;
+    price.classList.add("price");
     const calories = document.createElement("p");
     calories.textContent = dishCalories;
+    calories.classList.add("calories")
     const description = document.createElement("p");
     description.textContent = dishDescription;
+    description.classList.add("dish-description");
 
+    foodItem.appendChild(name);
     foodItem.appendChild(price);
     foodItem.appendChild(calories);
     foodItem.appendChild(description);
@@ -189,9 +204,11 @@ const pageCreate = (() => {
     const main = document.createElement("div");
     main.id = "main";
 
+    const contactWrapper = document.createElement("div");
+
     const title = document.createElement("h2");
     title.textContent = "Contact Us!";
-    main.appendChild(title);
+    contactWrapper.appendChild(title);
 
     const contact = document.createElement("ul");
     contact.classList.add("comm");
@@ -223,7 +240,8 @@ const pageCreate = (() => {
     addressIcon.textContent = "place";
     address.insertBefore(addressIcon, address.childNodes[0]);
 
-    main.appendChild(contact);
+    contactWrapper.appendChild(contact);
+    main.appendChild(contactWrapper);
 
     return main;
   }
